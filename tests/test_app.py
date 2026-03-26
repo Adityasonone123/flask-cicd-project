@@ -16,7 +16,7 @@ class FlaskTestCase(unittest.TestCase):
     def test_home(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'Hello from CI/CD Pipeline with Flask!', response.data)
+        self.assertIn(b'LIVE from Kubernetes! Demo v2.0', response.data)
     
     def test_home_response_type(self):
         response = self.app.get('/')
