@@ -87,8 +87,11 @@ jobs:
 
       - name: Wait for cluster to be ready
         run: |
+          echo "🚀 Setting up Kubernetes Cluster..."
           kubectl cluster-info
+          kubectl version --short || kubectl version
           kubectl wait --for=condition=Ready nodes --all --timeout=60s
+          echo "✅ Kubernetes cluster is ready!"
 
       - name: Create Namespace
         run: |
